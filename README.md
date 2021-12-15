@@ -5,7 +5,7 @@
 
 ## Details
 
-#### In colaboration with **[Thanaphum Thepwan](https://www.github.com/tnptw)
+#### In colaboration with [Thanaphum Thepwan](https://www.github.com/tnptw)
 
 Made as a part of project in 2110215 PROG METH I, Academic Year 2021.
 
