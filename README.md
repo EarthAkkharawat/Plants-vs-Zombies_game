@@ -25,7 +25,7 @@ Use Java, JavaFX
   1. Make sure you have downloaded the lastest version of [Java](https://oracle.com/java/technologies/downloads/) and [JavaFX](https://gluonhq.com/products/javafx/).
   2. Clone this repository using `git clone https://github.com/parntt/prog-meth-project.git`
   3. `cd` into the directory.
-  4. Use the command `java -jar --module-path "path_to_fx/lib" --add-modules javafx.controls,javafx.media,javafx.fxml PlantsVsZombies.jar`
+  4. Use the command `java -jar --module-path "path_to_fx\lib" --add-modules javafx.controls,javafx.media,javafx.fxml PlantsVsZombies.jar`
   5. Have Fun :D 
 
 
