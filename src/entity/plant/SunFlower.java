@@ -46,7 +46,7 @@ public class SunFlower extends Plant {
             stopShine.play();
         }));
 
-        Timeline startShine = new Timeline(new KeyFrame(Duration.seconds(10), event -> {
+        Timeline startShine = new Timeline(new KeyFrame(Duration.seconds(8), event -> {
             Glow shines = new Glow();
             getImage().setEffect(shines);
             shines.setLevel(0.7);

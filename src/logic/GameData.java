@@ -19,7 +19,7 @@ public class GameData {
 
     // Methods
     public GameData(int level) {
-        sunCount = 50;
+        sunCount = 75;
         zombieList1 = new ArrayList<>();
         zombieList2 = new ArrayList<>();
         allZombie = Collections.synchronizedList(new ArrayList<>());

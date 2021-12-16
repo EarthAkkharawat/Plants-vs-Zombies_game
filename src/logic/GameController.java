@@ -213,7 +213,7 @@ public class GameController {
     }
 
     public void fallingSuns(Random ran) {
-        Timeline sunDrop = new Timeline(new KeyFrame(Duration.seconds(10), event -> {
+        Timeline sunDrop = new Timeline(new KeyFrame(Duration.seconds(12), event -> {
             int sunPosition = ran.nextInt(950);
             Sun sun = new Sun(sunPosition, 0, true);
             sun.buildImage(GamePlayRoot);
