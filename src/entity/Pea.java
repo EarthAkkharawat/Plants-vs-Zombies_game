@@ -1,5 +1,6 @@
 package entity;
 
+import entity.base.Entity;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.media.Media;
@@ -7,7 +8,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 import logic.GameController;
 
-import java.util.Iterator;
+import java.util.Objects;
 
 public class Pea extends Entity {
 
@@ -20,7 +21,7 @@ public class Pea extends Entity {
     // Constructor
     public Pea(int x, int y, int plantPosition, int lane) {
         super(x, y, 20, 20, "/images/pea.png");
-        this.path = getClass().getResource("/images/pea.png").toString();
+        this.path = Objects.requireNonNull(getClass().getResource("/images/pea.png")).toString();
         setPlantPosition(plantPosition);
         setLane(lane);
         setBombed(false);
@@ -45,15 +46,15 @@ public class Pea extends Entity {
 
     public void checkZombieCollision() {
         synchronized (GameController.allZombies) {
-            for (Zombie zombie : (Iterable<Zombie>) GameController.allZombies) {
+            for (Zombie zombie : GameController.allZombies) {
                 if (zombie.getLane() == lane && !bombed) {
                     if (Math.abs(zombie.getX() - getX()) <= 3 && !bombed) {
                         bombed = true;
-                        zombie.setHealth(zombie.getHealth() - 1);
-                        image.setVisible(false);
-                        image.setDisable(true);
+                        zombie.setHealthPoint(zombie.getHealth() - 1);
+                        getImage().setVisible(false);
+                        getImage().setDisable(true);
                         peaAnimation.stop();
-                        Media splat = new Media(getClass().getResource("/sounds/splat3.wav").toString());
+                        Media splat = new Media(Objects.requireNonNull(getClass().getResource("/sounds/splat3.wav")).toString());
                         MediaPlayer mediaPlayer = new MediaPlayer(splat);
                         mediaPlayer.setAutoPlay(true);
                         mediaPlayer.play();

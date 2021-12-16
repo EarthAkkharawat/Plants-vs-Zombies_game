@@ -8,27 +8,27 @@
 
 <AnchorPane fx:id="GameMenuRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/15" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.GameMenuController">
    <children>
-      <ImageView fitHeight="502.0" fitWidth="640.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="652.0" fitWidth="695.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
-            <Image url="@../assets/images/Inlevelmenu.png" />
+            <Image url="@../assets/images/pause_background.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="114.0" fitWidth="372.0" layoutX="121.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="114.0" fitWidth="372.0" layoutX="135.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/images/Button2.png" />
          </image>
       </ImageView>
-      <Text fill="WHITE" layoutX="206.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Game Menu">
+      <Text fill="WHITE" layoutX="224.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Game Menu">
          <font>
             <Font name="Comic Sans MS Bold" size="33.0" />
          </font>
       </Text>
-      <ImageView fx:id="restartGameButton" fitHeight="81.0" fitWidth="171.0" layoutX="211.0" layoutY="171.0" onMouseClicked="#restartGame" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="restartGameButton" fitHeight="93.0" fitWidth="202.0" layoutX="219.0" layoutY="163.0" onMouseClicked="#restartGame" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/images/buttonrestart.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="goToMainMenuButton" fitHeight="86.0" fitWidth="95.0" layoutX="253.0" layoutY="273.0" onMouseClicked="#showMainMenu" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="goToMainMenuButton" fitHeight="86.0" fitWidth="95.0" layoutX="276.0" layoutY="283.0" onMouseClicked="#showMainMenu" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/images/buttonHome.png" />
          </image>

@@ -1,6 +1,5 @@
 package entity.base;
 
-import entity.Entity;
 import javafx.scene.layout.Pane;
 
 public interface Attackable {

@@ -1,8 +1,13 @@
 package entity.zombie;
 
 
+import entity.Plant;
 import entity.Zombie;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.scene.layout.Pane;
+import javafx.util.Duration;
+import logic.GameController;
 
 public class FunnelHeadZombie extends Zombie {
 
@@ -18,6 +23,24 @@ public class FunnelHeadZombie extends Zombie {
 
     @Override
     public void attacking() {
-        super.eatPlant();
+        eatPlant();
+    }
+
+    @Override
+    public void eatPlant() {
+        synchronized (GameController.allPlants) {
+            for (Plant plant : GameController.allPlants) {
+                if (plant.getRow() == getLane()) {
+                    if (Math.abs(plant.getX() - getImage().getX()) <= 20) {
+                        super.actEat(plant);
+                    } else {
+                        reachedPlant = false;
+                        if (eating != null) {
+                            eating.stop();
+                        }
+                    }
+                }
+            }
+        }
     }
 }

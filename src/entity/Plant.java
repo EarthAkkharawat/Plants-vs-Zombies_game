@@ -1,12 +1,11 @@
 package entity;
 
 import entity.base.Attackable;
+import entity.base.Entity;
 import javafx.animation.Timeline;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
-import logic.GameController;
 
 public abstract class Plant extends Entity implements Attackable {
 
@@ -37,12 +36,9 @@ public abstract class Plant extends Entity implements Attackable {
 
     public void setHealthpoint(int healthpoint) {
         this.healthpoint = healthpoint;
-        if (this.healthpoint <= 0) {
-            GameController.allPlants.remove(this);
-            getImage().setVisible(false);
-            getImage().setDisable(true);
-        }
+        checkHealthPoint();
     }
+
     public abstract void checkHealthPoint();
 
     public void endAnimation(Timeline timeline) {

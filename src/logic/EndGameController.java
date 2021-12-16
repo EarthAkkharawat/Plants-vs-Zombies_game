@@ -3,14 +3,16 @@ package logic;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class EndGameController {
+
+    // Fields
     @FXML
     public Button mainMenuButton;
     @FXML
@@ -26,15 +28,16 @@ public class EndGameController {
     @FXML
     private ImageView plantImage;
 
+    // Methods
     @FXML
     public void ToMainMenu() throws IOException {
-        AnchorPane Apane = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
+        AnchorPane Apane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainMenu.fxml")));
         endGame.getChildren().setAll(Apane);
     }
 
     @FXML
     public void ToNextLevel() throws IOException {
-        AnchorPane Apane = FXMLLoader.load(getClass().getResource("LevelMenu.fxml"));
+        AnchorPane Apane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LevelMenu.fxml")));
         endGame.getChildren().setAll(Apane);
     }
 

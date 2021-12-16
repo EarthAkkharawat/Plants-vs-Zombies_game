@@ -1,8 +1,8 @@
 package entity;
 
+import entity.base.Entity;
 import javafx.scene.effect.Glow;
 import javafx.scene.layout.Pane;
-import logic.SideElement;
 
 // Singleton class
 public class Shovel extends Entity {
@@ -29,8 +29,8 @@ public class Shovel extends Entity {
     }
 
     @Override
-    public void buildImage(Pane p) {
-        super.buildImage(p);
+    public void buildImage(Pane pane) {
+        super.buildImage(pane);
         shovel.getImage().setOnMouseClicked(e -> {
             isDisabled = false;
             shovel.enable();

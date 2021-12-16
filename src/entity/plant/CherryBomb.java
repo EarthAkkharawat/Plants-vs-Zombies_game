@@ -11,6 +11,7 @@ import javafx.scene.media.MediaPlayer;
 import logic.GameController;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class CherryBomb extends Plant {
 
@@ -48,7 +49,7 @@ public class CherryBomb extends Plant {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            Media blast = new Media(getClass().getResource("/sounds/cherrybomb.wav").toString());
+            Media blast = new Media(Objects.requireNonNull(getClass().getResource("/sounds/cherrybomb.wav")).toString());
             MediaPlayer mediaPlayer = new MediaPlayer(blast);
             mediaPlayer.setAutoPlay(true);
             mediaPlayer.play();
@@ -56,11 +57,11 @@ public class CherryBomb extends Plant {
             image.setDisable(true);
             cherry.setVisible(true);
             synchronized (GameController.allZombies) {
-                for (Zombie x : (Iterable<Zombie>) GameController.allZombies) {
-                    if (x.getX() <= (getX() + 250) && x.getX() >= (getX() - 150)) {
-                        if (x.getY() <= (getY() + 250) && x.getY() >= (getY() - 150)) {
-                            getRoastedZombies().add(x);
-                            x.burntZombie();
+                for (Zombie zombie : GameController.allZombies) {
+                    if (zombie.getX() <= (getX() + 250) && zombie.getX() >= (getX() - 150)) {
+                        if (zombie.getY() <= (getY() + 250) && zombie.getY() >= (getY() - 150)) {
+                            getRoastedZombies().add(zombie);
+                            zombie.burntZombie();
                         }
                     }
                 }
@@ -72,9 +73,9 @@ public class CherryBomb extends Plant {
                 }
             }
             for (Zombie roastedZombie : getRoastedZombies()) {
-                for (int i = 0; i < GameController.allZombies.size(); i++) {
-                    if (roastedZombie == GameController.allZombies.get(i)) {
-                        GameController.allZombies.remove(i);
+                for (int idx = 0; idx < GameController.allZombies.size(); idx++) {
+                    if (roastedZombie == GameController.allZombies.get(idx)) {
+                        GameController.allZombies.remove(idx);
                     }
                 }
             }

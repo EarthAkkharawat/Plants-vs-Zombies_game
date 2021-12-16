@@ -9,61 +9,64 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class GameEntity {
-    private int level;
-    private int numDefaultZombie;
-    private int numFunnelHeadZombie;
-    private int numBucketHeadZombie;
-    private ArrayList<Integer> availableZombies;
-    private ArrayList<Integer> zombieList1;
-    private ArrayList<Integer> zombieList2;
-    private int totalZombies;
 
+    // Fields
+    private final int level;
+    private final int numDefaultZombie;
+    private final int numFunnelHeadZombie;
+    private final int numBucketHeadZombie;
+    private final ArrayList<Integer> availableZombies;
+    private final ArrayList<Integer> zombieList1;
+    private final ArrayList<Integer> zombieList2;
+    private final int totalZombies;
+
+    // Methods
     public GameEntity(int level) {
         this.level = level;
-        this.zombieList1 = new ArrayList<>();
-        this.zombieList2 = new ArrayList<>();
-        this.availableZombies = new ArrayList<>();
+        zombieList1 = new ArrayList<>();
+        zombieList2 = new ArrayList<>();
+        availableZombies = new ArrayList<>();
         if (level >= 5) {
-            this.totalZombies = 30;
-            this.numDefaultZombie = 12;
-            this.numFunnelHeadZombie = 10;
-            this.numBucketHeadZombie = 8;
+            totalZombies = 30;
+            numDefaultZombie = 12;
+            numFunnelHeadZombie = 10;
+            numBucketHeadZombie = 8;
         } else if (level >= 4) {
-            this.totalZombies = 25;
-            this.numDefaultZombie = 12;
-            this.numFunnelHeadZombie = 9;
-            this.numBucketHeadZombie = 4;
+            totalZombies = 25;
+            numDefaultZombie = 12;
+            numFunnelHeadZombie = 9;
+            numBucketHeadZombie = 4;
         } else if (level >= 3) {
-            this.totalZombies = 20;
-            this.numDefaultZombie = 10;
-            this.numFunnelHeadZombie = 8;
-            this.numBucketHeadZombie = 2;
+            totalZombies = 20;
+            numDefaultZombie = 10;
+            numFunnelHeadZombie = 8;
+            numBucketHeadZombie = 2;
         } else if (level >= 2) {
-            this.totalZombies = 15;
-            this.numDefaultZombie = 10;
-            this.numFunnelHeadZombie = 5;
-            this.numBucketHeadZombie = 0;
+            totalZombies = 15;
+            numDefaultZombie = 10;
+            numFunnelHeadZombie = 5;
+            numBucketHeadZombie = 0;
         } else {
-            this.totalZombies = 10;
-            this.numDefaultZombie = 10;
-            this.numFunnelHeadZombie = 0;
-            this.numBucketHeadZombie = 0;
+            totalZombies = 10;
+            numDefaultZombie = 10;
+            numFunnelHeadZombie = 0;
+            numBucketHeadZombie = 0;
         }
-        for (int idx = 0; idx < this.numDefaultZombie; idx++) {
-            this.availableZombies.add(1);
+        for (int idx = 0; idx < numDefaultZombie; idx++) {
+            availableZombies.add(1);
         }
         for (int idx = 0; idx < this.numFunnelHeadZombie; idx++) {
-            this.availableZombies.add(2);
+            availableZombies.add(2);
         }
         for (int idx = 0; idx < this.numBucketHeadZombie; idx++) {
-            this.availableZombies.add(3);
+            availableZombies.add(3);
         }
         Collections.shuffle(availableZombies);
         for (int idx = 0; idx < availableZombies.size(); idx++) {
             if (idx % 2 == 1) {
-                this.zombieList1.add(availableZombies.get(idx));
+                zombieList1.add(availableZombies.get(idx));
             } else {
-                this.zombieList2.add(availableZombies.get(idx));
+                zombieList2.add(availableZombies.get(idx));
             }
         }
     }

@@ -63,6 +63,8 @@ public class SunFlower extends Plant {
 
     public void checkHealthPoint() {
         if (getHealthpoint() <= 0) {
+            getImage().setVisible(false);
+            getImage().setDisable(true);
             endAnimation(getSunProducer());
         }
     }

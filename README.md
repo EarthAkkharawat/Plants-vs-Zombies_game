@@ -1,6 +1,6 @@
-<h1 align="center">Plants VS. Zombies</h1>
+<h1 align="center">🌱 Plants VS. Zombies 🧟‍♂️</h1>
 <p align="center">
-  <img width="500" src="./assets/images/Plants-vs-Zombies.jpg">
+  <img width="500" src="./assets/images/Pvz_logo.png">
 </p>
 
 ## Details
@@ -28,6 +28,11 @@ Use Java, JavaFX
   4. Use the command `java -jar --module-path "path_to_fx\lib" --add-modules javafx.controls,javafx.media,javafx.fxml PlantsVsZombies.jar`
   5. Have Fun :D 
 
+## Sceenshots
+
+![alt_text](./screenshots/MainMenu.PNG)
+![alt_text](./screenshots/GamePlay_day.PNG)
+![alt_text](./screenshots/GamePlay_night.PNG)
 
 ## Related content Topics 
 

@@ -6,8 +6,6 @@ import entity.Plant;
 import entity.Zombie;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 import logic.GameController;
@@ -29,13 +27,13 @@ public class Shooter extends Plant {
     public void attacking(Pane pane) {
         Timeline peaShooter = new Timeline(new KeyFrame(Duration.seconds(2), event -> {
             synchronized (GameController.allZombies) {
-                for (Zombie z : (Iterable<Zombie>)GameController.allZombies) {
-                    if (z.getLane() == getShooterLane() && getX() <= z.getX()) {
+                for (Zombie zombie : GameController.allZombies) {
+                    if (zombie.getLane() == getShooterLane() && getX() <= zombie.getX()) {
                         int peaStartX = getX() + 50;
                         int peaStartY = getY() + 25;
-                        Pea p = new Pea(peaStartX, peaStartY, getX() + 50, row);
-                        p.buildImage(pane);
-                        p.shootPea();
+                        Pea pea = new Pea(peaStartX, peaStartY, getX() + 50, row);
+                        pea.buildImage(pane);
+                        pea.shootPea();
                         checkHealthPoint();
                     }
                 }
@@ -61,7 +59,9 @@ public class Shooter extends Plant {
 
     public void checkHealthPoint() {
         if (getHealthpoint() <= 0) {
-            endAnimation(shooterTimeline);
+            getImage().setVisible(false);
+            getImage().setDisable(true);
+            endAnimation(getShooterTimeline());
         }
     }
 

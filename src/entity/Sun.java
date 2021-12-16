@@ -1,5 +1,6 @@
 package entity;
 
+import entity.base.Entity;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.layout.Pane;

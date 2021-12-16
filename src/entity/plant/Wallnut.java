@@ -2,7 +2,6 @@ package entity.plant;
 
 import entity.Plant;
 import javafx.scene.layout.Pane;
-import logic.GameController;
 
 public class Wallnut extends Plant {
 
@@ -14,8 +13,6 @@ public class Wallnut extends Plant {
     // Methods
     public void checkHealthPoint() {
         if (getHealthpoint() <= 0) {
-            setHealthpoint(0);
-            GameController.allPlants.remove(this);
             getImage().setVisible(false);
             getImage().setDisable(true);
         }
