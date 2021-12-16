@@ -23,9 +23,6 @@ public abstract class Zombie extends Entity implements Attackable {
     private int lane;
     protected int dx;
     private Timeline zombieAnimation;
-    protected Timeline eating;
-    protected boolean reachedPlant = false;
-    protected boolean isEating = false;
 
     // Constructor
     public Zombie(int health, int attackPower, int x, int y, int width, int height, int lane, String path) {
@@ -34,7 +31,6 @@ public abstract class Zombie extends Entity implements Attackable {
         setAttackPower(attackPower);
         setLane(lane);
         setDx(-1);
-        eating = new Timeline();
     }
 
     // Methods
@@ -46,9 +42,6 @@ public abstract class Zombie extends Entity implements Attackable {
                 getImage().setVisible(false);
                 getImage().setDisable(true);
                 getZombieAnimation().stop();
-                if (eating != null) {
-                    eating.stop();
-                }
                 for (Object zombie : GameController.allZombies) {
                     if (this == zombie) {
                         Media yuckSound = new Media(Objects.requireNonNull(getClass().getResource("/sounds/yuck.wav")).toString());
@@ -72,7 +65,6 @@ public abstract class Zombie extends Entity implements Attackable {
         getImage().setImage(new Image(Objects.requireNonNull(getClass().getResource("/gif/burntZombie.gif")).toString(), 65, 115, false, false));
         health = 0;
         dx = 0;
-        eating.stop();
         ++GameController.numKilledZombies;
         new Thread(() -> {
             try {
@@ -96,16 +88,6 @@ public abstract class Zombie extends Entity implements Attackable {
         }
     }
 
-    public void chompPlant() {
-        Media chomp = new Media(Objects.requireNonNull(getClass().getResource("/sounds/chomp.wav")).toString());
-        MediaPlayer mediaPlayer = new MediaPlayer(chomp);
-        mediaPlayer.setAutoPlay(true);
-        mediaPlayer.setStartTime(Duration.seconds(0));
-        mediaPlayer.setStopTime(Duration.seconds(1));
-        mediaPlayer.setCycleCount(1);
-        mediaPlayer.play();
-    }
-
     public void moveZombie() {
         Timeline animation = new Timeline(new KeyFrame(Duration.millis(70), e -> zombieWalk()));
         animation.setCycleCount(Animation.INDEFINITE);
@@ -127,27 +109,12 @@ public abstract class Zombie extends Entity implements Attackable {
     }
 
     public void actEat(Plant plant) {
-        if (!reachedPlant) {
-            reachedPlant = true;
-            isEating = true;
-        }
-        if (isEating) {
-            Timeline eat = new Timeline(new KeyFrame(Duration.millis(1000), e -> chompPlant()));
-            eat.setCycleCount(1000);
-            eat.play();
-            dx = 0;
-            eating = eat;
-            GameController.animationTimelines.add(eat);
-            isEating = false;
-        }
         dx = 0;
         plant.setHealthpoint(plant.getHealthpoint() - attackPower);
         if (plant.getHealthpoint() <= 0) {
             plant.setHealthpoint(0);
             GameController.allPlants.remove(plant);
             dx = -1;
-            reachedPlant = false;
-            eating.stop();
         }
     }
 
@@ -157,11 +124,6 @@ public abstract class Zombie extends Entity implements Attackable {
                 if (plant.getRow() == getLane()) {
                     if (Math.abs(plant.getX() - getImage().getX()) <= 50) {
                         actEat(plant);
-                    } else {
-                        reachedPlant = false;
-                        if (eating != null) {
-                            eating.stop();
-                        }
                     }
                 }
             }

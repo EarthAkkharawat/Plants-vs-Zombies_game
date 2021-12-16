@@ -33,11 +33,6 @@ public class FunnelHeadZombie extends Zombie {
                 if (plant.getRow() == getLane()) {
                     if (Math.abs(plant.getX() - getImage().getX()) <= 20) {
                         super.actEat(plant);
-                    } else {
-                        reachedPlant = false;
-                        if (eating != null) {
-                            eating.stop();
-                        }
                     }
                 }
             }
