@@ -8,9 +8,11 @@ import javafx.scene.layout.Pane;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * The type Game entity.
+ */
 public class GameEntity {
 
-    // Fields
     private final int level;
     private final int numDefaultZombie;
     private final int numFunnelHeadZombie;
@@ -20,7 +22,11 @@ public class GameEntity {
     private final ArrayList<Integer> zombieList2;
     private final int totalZombies;
 
-    // Methods
+    /**
+     * Instantiates a new Game entity.
+     *
+     * @param level the level
+     */
     public GameEntity(int level) {
         this.level = level;
         zombieList1 = new ArrayList<>();
@@ -71,6 +77,13 @@ public class GameEntity {
         }
     }
 
+    /**
+     * Spawn default zombie.
+     *
+     * @param pane       the pane
+     * @param lane       the lane
+     * @param laneNumber the lane number
+     */
     public static void spawnDefaultZombie(Pane pane, int lane, int laneNumber) {
         DefaultZombie Dzombie = new DefaultZombie(1024, lane, laneNumber);
         Dzombie.buildImage(pane);
@@ -78,6 +91,13 @@ public class GameEntity {
         Dzombie.moveZombie();
     }
 
+    /**
+     * Spawn funnel head zombie.
+     *
+     * @param pane       the pane
+     * @param lane       the lane
+     * @param laneNumber the lane number
+     */
     public static void spawnFunnelHeadZombie(Pane pane, int lane, int laneNumber) {
         FunnelHeadZombie Fzombie = new FunnelHeadZombie(1024, lane, laneNumber);
         Fzombie.buildImage(pane);
@@ -85,6 +105,13 @@ public class GameEntity {
         Fzombie.moveZombie();
     }
 
+    /**
+     * Spawn bucket head zombie.
+     *
+     * @param pane       the pane
+     * @param lane       the lane
+     * @param laneNumber the lane number
+     */
     public static void spawnBucketHeadZombie(Pane pane, int lane, int laneNumber) {
         BucketHeadZombie Bzombie = new BucketHeadZombie(1024, lane, laneNumber);
         Bzombie.buildImage(pane);
@@ -92,34 +119,74 @@ public class GameEntity {
         Bzombie.moveZombie();
     }
 
+    /**
+     * Gets level.
+     *
+     * @return the level
+     */
     public int getLevel() {
         return level;
     }
 
+    /**
+     * Gets num default zombie.
+     *
+     * @return the num default zombie
+     */
     public int getNumDefaultZombie() {
         return numDefaultZombie;
     }
 
+    /**
+     * Gets num funnel head zombie.
+     *
+     * @return the num funnel head zombie
+     */
     public int getNumFunnelHeadZombie() {
         return numFunnelHeadZombie;
     }
 
+    /**
+     * Gets num bucket head zombie.
+     *
+     * @return the num bucket head zombie
+     */
     public int getNumBucketHeadZombie() {
         return numBucketHeadZombie;
     }
 
+    /**
+     * Gets zombie list 1.
+     *
+     * @return the zombie list 1
+     */
     public ArrayList<Integer> getZombieList1() {
         return zombieList1;
     }
 
+    /**
+     * Gets zombie list 2.
+     *
+     * @return the zombie list 2
+     */
     public ArrayList<Integer> getZombieList2() {
         return zombieList2;
     }
 
+    /**
+     * Gets total zombies.
+     *
+     * @return the total zombies
+     */
     public int getTotalZombies() {
         return totalZombies;
     }
 
+    /**
+     * Gets available zombies.
+     *
+     * @return the available zombies
+     */
     public ArrayList<Integer> getAvailableZombies() {
         return availableZombies;
     }

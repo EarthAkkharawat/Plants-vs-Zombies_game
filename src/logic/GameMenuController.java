@@ -11,9 +11,11 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * The type Game menu controller.
+ */
 public class GameMenuController {
 
-    // Fields
     @FXML
     private AnchorPane GamePlayRoot;
     @FXML
@@ -22,9 +24,19 @@ public class GameMenuController {
     @FXML
     private int levelNumber;
     private GameData data;
+    /**
+     * The All plants.
+     */
     public static List<Plant> allPlants;
 
-    // Methods
+    /**
+     * Initialize data.
+     *
+     * @param gamePlayRoot the game play root
+     * @param levelNumber  the level number
+     * @param d            the d
+     * @param allPlant     the all plant
+     */
     @FXML
     public void initializeData(AnchorPane gamePlayRoot, int levelNumber, GameData d, List<Plant> allPlant) {
         this.GamePlayRoot = gamePlayRoot;
@@ -33,6 +45,11 @@ public class GameMenuController {
         allPlants = allPlant;
     }
 
+    /**
+     * Restart game.
+     *
+     * @throws IOException the io exception
+     */
     @FXML
     public void restartGame() throws IOException {
         GameController.gameStatus = false;
@@ -48,6 +65,11 @@ public class GameMenuController {
         GamePlayRoot.getChildren().setAll(game);
     }
 
+    /**
+     * Show main menu.
+     *
+     * @throws IOException the io exception
+     */
     @FXML
     public void showMainMenu() throws IOException {
         GameController.gameStatus = false;

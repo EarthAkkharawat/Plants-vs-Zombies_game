@@ -15,16 +15,35 @@ import logic.GameController;
 import java.util.Objects;
 
 
+/**
+ * The type Zombie.
+ */
 public abstract class Zombie extends Entity implements Attackable {
 
-    // Fields
     private int health;
+    /**
+     * The Attack power.
+     */
     protected int attackPower;
     private int lane;
+    /**
+     * The Dx.
+     */
     protected int dx;
     private Timeline zombieAnimation;
 
-    // Constructor
+    /**
+     * Instantiates a new Zombie.
+     *
+     * @param health      the health
+     * @param attackPower the attack power
+     * @param x           the x
+     * @param y           the y
+     * @param width       the width
+     * @param height      the height
+     * @param lane        the lane
+     * @param path        the path
+     */
     public Zombie(int health, int attackPower, int x, int y, int width, int height, int lane, String path) {
         super(x, y, width, height, path);
         this.health = health;
@@ -33,7 +52,11 @@ public abstract class Zombie extends Entity implements Attackable {
         setDx(-1);
     }
 
-    // Methods
+    /**
+     * Sets health point.
+     *
+     * @param health the health
+     */
     public void setHealthPoint(int health) {
         this.health = health;
         Platform.runLater(() -> {
@@ -61,6 +84,9 @@ public abstract class Zombie extends Entity implements Attackable {
         });
     }
 
+    /**
+     * Burnt zombie.
+     */
     public void burntZombie() {
         getImage().setImage(new Image(Objects.requireNonNull(getClass().getResource("/gif/burntZombie.gif")).toString(), 65, 115, false, false));
         health = 0;
@@ -78,6 +104,9 @@ public abstract class Zombie extends Entity implements Attackable {
 
     }
 
+    /**
+     * Reached house.
+     */
     public void ReachedHouse() {
         if (getImage().getX() <= 220) {
             Media brainzSound = new Media(Objects.requireNonNull(getClass().getResource("/sounds/brainz.wav")).toString());
@@ -88,6 +117,9 @@ public abstract class Zombie extends Entity implements Attackable {
         }
     }
 
+    /**
+     * Move zombie.
+     */
     public void moveZombie() {
         Timeline animation = new Timeline(new KeyFrame(Duration.millis(70), e -> zombieWalk()));
         animation.setCycleCount(Animation.INDEFINITE);
@@ -96,6 +128,9 @@ public abstract class Zombie extends Entity implements Attackable {
         GameController.animationTimelines.add(animation);
     }
 
+    /**
+     * Zombie walk.
+     */
     public void zombieWalk() {
         if (getX() > 220 && health > 0) {
             setX(getX() + dx);
@@ -108,6 +143,11 @@ public abstract class Zombie extends Entity implements Attackable {
         }
     }
 
+    /**
+     * Act eat.
+     *
+     * @param plant the plant
+     */
     public void actEat(Plant plant) {
         dx = 0;
         plant.setHealthpoint(plant.getHealthpoint() - attackPower);
@@ -118,6 +158,9 @@ public abstract class Zombie extends Entity implements Attackable {
         }
     }
 
+    /**
+     * Eat plant.
+     */
     public void eatPlant() {
         synchronized (GameController.allPlants) {
             for (Plant plant : GameController.allPlants) {
@@ -130,30 +173,65 @@ public abstract class Zombie extends Entity implements Attackable {
         }
     }
 
+    /**
+     * Gets health.
+     *
+     * @return the health
+     */
     public int getHealth() {
         return health;
     }
 
+    /**
+     * Gets attack power.
+     *
+     * @return the attack power
+     */
     public int getAttackPower() {
         return attackPower;
     }
 
+    /**
+     * Gets lane.
+     *
+     * @return the lane
+     */
     public int getLane() {
         return lane;
     }
 
+    /**
+     * Sets lane.
+     *
+     * @param lane the lane
+     */
     public void setLane(int lane) {
         this.lane = lane;
     }
 
+    /**
+     * Sets attack power.
+     *
+     * @param attackPower the attack power
+     */
     public void setAttackPower(int attackPower) {
         this.attackPower = attackPower;
     }
 
+    /**
+     * Sets dx.
+     *
+     * @param dx the dx
+     */
     public void setDx(int dx) {
         this.dx = dx;
     }
 
+    /**
+     * Gets zombie animation.
+     *
+     * @return the zombie animation
+     */
     public Timeline getZombieAnimation() {
         return zombieAnimation;
     }

@@ -11,20 +11,33 @@ import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 import java.util.Objects;
 
+/**
+ * The type Level menu controller.
+ */
 public class LevelMenuController {
 
-    // Fields
     @FXML
     private AnchorPane levelRoot;
     @FXML
     private ImageView nightTheme;
+    /**
+     * The Night mode.
+     */
     @FXML
     public ImageView nightMode;
+    /**
+     * The Day mode.
+     */
     @FXML
     public ImageView dayMode;
+    /**
+     * The constant status.
+     */
     public static boolean status = true;
 
-    // Methods
+    /**
+     * Initialize.
+     */
     public void initialize() {
         if (status) {
             nightTheme.setVisible(false);
@@ -42,6 +55,11 @@ public class LevelMenuController {
         }
     }
 
+    /**
+     * Shine image.
+     *
+     * @param event the event
+     */
     @FXML
     public void shineImage(MouseEvent event) {
         Node source = (Node) event.getSource();
@@ -50,6 +68,11 @@ public class LevelMenuController {
         shine.setLevel(0.3);
     }
 
+    /**
+     * Stop shining.
+     *
+     * @param event the event
+     */
     @FXML
     public void stopShining(MouseEvent event) {
         Node source = (Node) event.getSource();
@@ -58,6 +81,11 @@ public class LevelMenuController {
         shine.setLevel(0.0);
     }
 
+    /**
+     * Start level 1.
+     *
+     * @throws IOException the io exception
+     */
     @FXML
     public void startLevel1() throws IOException {
         FXMLLoader gamePlayfxml = new FXMLLoader(getClass().getResource("GamePlay.fxml"));
@@ -68,6 +96,11 @@ public class LevelMenuController {
 
     }
 
+    /**
+     * Start level 2.
+     *
+     * @throws IOException the io exception
+     */
     @FXML
     public void startLevel2() throws IOException {
         FXMLLoader gamePlayfxml = new FXMLLoader(getClass().getResource("GamePlay.fxml"));
@@ -78,6 +111,11 @@ public class LevelMenuController {
 
     }
 
+    /**
+     * Start level 3.
+     *
+     * @throws IOException the io exception
+     */
     @FXML
     public void startLevel3() throws IOException {
         FXMLLoader gamePlayfxml = new FXMLLoader(getClass().getResource("GamePlay.fxml"));
@@ -88,6 +126,11 @@ public class LevelMenuController {
 
     }
 
+    /**
+     * Start level 4.
+     *
+     * @throws IOException the io exception
+     */
     @FXML
     public void startLevel4() throws IOException {
         FXMLLoader gamePlayfxml = new FXMLLoader(getClass().getResource("GamePlay.fxml"));
@@ -98,6 +141,11 @@ public class LevelMenuController {
 
     }
 
+    /**
+     * Start level 5.
+     *
+     * @throws IOException the io exception
+     */
     @FXML
     public void startLevel5() throws IOException {
         FXMLLoader gamePlayfxml = new FXMLLoader(getClass().getResource("GamePlay.fxml"));
@@ -107,12 +155,20 @@ public class LevelMenuController {
         levelRoot.getChildren().setAll(Apane);
     }
 
+    /**
+     * Prev menu loader.
+     *
+     * @throws IOException the io exception
+     */
     @FXML
     public void PrevMenuLoader() throws IOException {
         AnchorPane Apane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainMenu.fxml")));
         levelRoot.getChildren().setAll(Apane);
     }
 
+    /**
+     * Change game theme.
+     */
     @FXML
     public void changeGameTheme() {
         if (!dayMode.isVisible()) {
@@ -132,6 +188,11 @@ public class LevelMenuController {
         }
     }
 
+    /**
+     * Gets day mode.
+     *
+     * @return the day mode
+     */
     public static boolean getDayMode() {
         return status;
     }

@@ -13,18 +13,29 @@ import logic.GameController;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * The type Cherry bomb.
+ */
 public class CherryBomb extends Plant {
 
-    // Fields
+    /**
+     * The Cherry.
+     */
     protected ImageView cherry;
     private ArrayList<Zombie> roastedZombies;
 
-    // Constructor
+    /**
+     * Instantiates a new Cherry bomb.
+     *
+     * @param x      the x
+     * @param y      the y
+     * @param column the column
+     * @param row    the row
+     */
     public CherryBomb(int x, int y, int column, int row) {
         super(x, y, 90, 68, "/gif/anim_cherrybomb.gif", 4, column, row);
     }
 
-    // Methods
     @Override
     public void attacking() {
     }
@@ -83,6 +94,9 @@ public class CherryBomb extends Plant {
         }).start();
     }
 
+    /**
+     * Remove cherry.
+     */
     public void removeCherry() {
         new Thread(() -> {
             try {
@@ -99,6 +113,11 @@ public class CherryBomb extends Plant {
     public void checkHealthPoint() {
     }
 
+    /**
+     * Gets roasted zombies.
+     *
+     * @return the roasted zombies
+     */
     public ArrayList<Zombie> getRoastedZombies() {
         return roastedZombies;
     }

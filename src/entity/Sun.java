@@ -7,12 +7,20 @@ import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 import logic.GameController;
 
+/**
+ * The type Sun.
+ */
 public class Sun extends Entity {
 
-    // Fields
     private final int timeout_time;
 
-    // Constructor
+    /**
+     * Instantiates a new Sun.
+     *
+     * @param x         the x
+     * @param y         the y
+     * @param isFalling the is falling
+     */
     public Sun(int x, int y, boolean isFalling) {
         super(x, y, 50, 50, "/images/sun.png");
         if (isFalling) {
@@ -23,7 +31,9 @@ public class Sun extends Entity {
         disappear();
     }
 
-    // Methods
+    /**
+     * Disappear.
+     */
     public void disappear() {
         new Thread(() -> {
             try {
@@ -47,12 +57,18 @@ public class Sun extends Entity {
         });
     }
 
+    /**
+     * Sun movement.
+     */
     public void sunMovement() {
         if (getY() <= 550) {
             setY(getY() + 1);
         }
     }
 
+    /**
+     * Falling sun.
+     */
     public void fallingSun() {
         Timeline sun_animation = new Timeline(new KeyFrame(Duration.millis(12), actionEvent -> sunMovement()));
         sun_animation.setCycleCount(550);

@@ -9,14 +9,23 @@ import javafx.util.Duration;
 import logic.GameController;
 
 
+/**
+ * The type Repeater.
+ */
 public class Repeater extends Shooter {
 
-    // Constructor
+    /**
+     * Instantiates a new Repeater.
+     *
+     * @param x      the x
+     * @param y      the y
+     * @param column the column
+     * @param row    the row
+     */
     public Repeater(int x, int y, int column, int row) {
         super(x, y, "/gif/repeater.gif", 150, 60, 62, column, row);
     }
 
-    // Methods
     @Override
     public void attacking(Pane pane) {
         Timeline peaShooter = new Timeline(new KeyFrame(Duration.seconds(2), event -> {

@@ -3,20 +3,25 @@ package entity.zombie;
 
 import entity.Plant;
 import entity.Zombie;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.scene.layout.Pane;
-import javafx.util.Duration;
 import logic.GameController;
 
+/**
+ * The type Funnel head zombie.
+ */
 public class FunnelHeadZombie extends Zombie {
 
-    // Constructor
+    /**
+     * Instantiates a new Funnel head zombie.
+     *
+     * @param x    the x
+     * @param y    the y
+     * @param lane the lane
+     */
     public FunnelHeadZombie(int x, int y, int lane) {
         super(12, 2, x, y, 134, 124, lane, "/gif/funnelheadzombie.gif");
     }
 
-    // Methods
     @Override
     public void attacking(Pane pane) {
     }

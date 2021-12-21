@@ -11,12 +11,16 @@ import javafx.util.Duration;
 
 import java.util.Objects;
 
+/**
+ * The type Main.
+ */
 public class Main extends Application {
 
-    // Fields
+    /**
+     * The constant mediaPlayer.
+     */
     public static MediaPlayer mediaPlayer;
 
-    // Methods
     @Override
     public void start(Stage primaryStage) throws Exception {
         addMusic();
@@ -28,6 +32,9 @@ public class Main extends Application {
         primaryStage.show();
     }
 
+    /**
+     * Add music.
+     */
     public void addMusic() {
         Media sound = new Media(Objects.requireNonNull(getClass().getResource("/sounds/background.wav")).toString());
         mediaPlayer = new MediaPlayer(sound);
@@ -38,6 +45,11 @@ public class Main extends Application {
         mediaPlayer.play();
     }
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         launch(args);
     }

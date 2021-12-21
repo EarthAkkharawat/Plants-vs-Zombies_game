@@ -6,18 +6,27 @@ import javafx.scene.layout.AnchorPane;
 
 import java.util.Objects;
 
+/**
+ * The type Main menu controller.
+ */
 public class MainMenuController {
 
-    // Fields
     @FXML
     private AnchorPane mainRoot;
 
-    // Methods
+    /**
+     * Exit game.
+     */
     @FXML
     public void exitGame() {
         System.exit(0);
     }
 
+    /**
+     * Show level menu.
+     *
+     * @throws Exception the exception
+     */
     @FXML
     public void showLevelMenu() throws Exception {
         AnchorPane Apane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LevelMenu.fxml")));

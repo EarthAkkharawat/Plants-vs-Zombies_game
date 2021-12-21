@@ -9,17 +9,25 @@ import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 import logic.GameController;
 
+/**
+ * The type Sun flower.
+ */
 public class SunFlower extends Plant {
 
-    // Field
     private Timeline sunProducer;
 
-    // Constructor
+    /**
+     * Instantiates a new Sun flower.
+     *
+     * @param x      the x
+     * @param y      the y
+     * @param column the column
+     * @param row    the row
+     */
     public SunFlower(int x, int y, int column, int row) {
         super(x, y, 73, 74, "/gif/sunflower.gif", 100, column, row);
     }
 
-    // Methods
     @Override
     public void attacking(Pane pane) {
         produceSun(pane);
@@ -30,6 +38,11 @@ public class SunFlower extends Plant {
 
     }
 
+    /**
+     * Produce sun.
+     *
+     * @param pane the pane
+     */
     public void produceSun(Pane pane) {
         Timeline stopShine = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
             Glow shine = new Glow();
@@ -69,6 +82,11 @@ public class SunFlower extends Plant {
         }
     }
 
+    /**
+     * Gets sun producer.
+     *
+     * @return the sun producer
+     */
     public Timeline getSunProducer() {
         return sunProducer;
     }
