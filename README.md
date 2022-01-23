@@ -38,7 +38,7 @@ Javadoc: [here](https://tnptw.github.io/plants-vs-zombies/)
 ![alt_text](./screenshots/GamePlay_day.PNG)
 ![alt_text](./screenshots/GamePlay_night.PNG)
 
-## Related content Topics 
+## Related Topics 
 
 - Object Oriented Programming (OOP)
 - Inheritance
