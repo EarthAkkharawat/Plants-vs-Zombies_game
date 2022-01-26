@@ -7,9 +7,9 @@
 
 #### Create by **[Thanaphum Thepwan](https://www.github.com/tnptw)** and **[Akkharawat Burachokviwat](https://www.github.com/EarthAkkharawat)**.
 
-Made as part of final project in 2110215 PROG METH I, Academic Year 2021.
+Made as part of final project in 2110215 PROG METH I, semester 1/2021.
 
-Use Java, JavaFX
+Used Java, JavaFX
 
 Javadoc: [here](https://tnptw.github.io/plants-vs-zombies/)
 
