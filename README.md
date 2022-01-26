@@ -11,7 +11,7 @@ Made as part of final project in 2110215 PROG METH I, semester 1/2021.
 
 Used Java, JavaFX
 
-Overview of the project: [here](https://tnptw.github.io/plants-vs-zombies/)
+Overview and details of the project: [plants-vs-zombies](https://tnptw.github.io/plants-vs-zombies/)
 
 ## Game Features
 
