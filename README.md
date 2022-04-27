@@ -32,7 +32,7 @@ Overview and details of the project: [plants-vs-zombies](https://tnptw.github.io
   4. Use the command `java -jar --module-path "path_to_fx\lib" --add-modules javafx.controls,javafx.media,javafx.fxml PlantsVsZombies.jar`
   5. Have Fun :D 
 
-## Sceenshots
+## Screenshots
 
 ![alt_text](./screenshots/MainMenu.PNG)
 ![alt_text](./screenshots/GamePlay_day.PNG)
